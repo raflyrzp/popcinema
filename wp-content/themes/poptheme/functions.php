@@ -12,6 +12,25 @@ function popcinema_register_menus()
 }
 add_action('init', 'popcinema_register_menus');
 
+// CUSTOM MENU ITEMS
+function custom_menu_items($items, $args)
+{
+    if ($args->theme_location === 'navbar-menu') {
+        if (is_user_logged_in()) {
+            $logout_url = wp_logout_url(home_url());
+            $items .= '<li class="menu-item"><a href="' . $logout_url . '">Logout</a></li>';
+        } else {
+            $login_url = wp_login_url();
+            $register_url = wp_registration_url();
+            $items .= '<li class="menu-item"><a href="' . $login_url . '">Login</a></li>';
+            $items .= '<li class="menu-item"><a href="' . $register_url . '">Register</a></li>';
+        }
+    }
+    return $items;
+}
+add_filter('wp_nav_menu_items', 'custom_menu_items', 10, 2);
+
+
 // LOGIN ERROR
 function popcinema_login_error()
 {

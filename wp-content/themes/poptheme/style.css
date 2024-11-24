@@ -40,7 +40,7 @@ nav h1 a {
 }
 
 .navbar {
-  width: 80%;
+  width: 70%;
   height: 100%;
   display: flex;
   justify-content: flex-end;
@@ -62,6 +62,7 @@ nav h1 a {
   font-weight: 500;
   transition: background-color 0.3s ease, transform 0.3s ease;
   cursor: pointer;
+  z-index: 10;
 }
 
 .navbar ul li a {
@@ -102,10 +103,10 @@ nav h1 a {
   width: 100%;
   padding: 10px 20px;
   text-transform: none;
-  font-size: 1rem;
 }
 
 .sub-menu li a {
+  font-size: 0.7rem;
   color: #ffffff;
   display: block;
   padding: 10px 15px;
@@ -150,7 +151,7 @@ nav h1 a {
   position: absolute;
   text-align: center; /* Posisikan teks di tengah */
   color: white;
-  z-index: 10;
+  z-index: 1;
   padding: 20px;
   width: 100%;
 }
