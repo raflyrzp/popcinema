@@ -6,19 +6,19 @@ $wp_query = new WP_Query([
 ]);
 ?>
 
-<div class="container">
 
-    <section class="hero">
-        <div class="judul">
-            <div class="isi-judul">
-                <h1><?php bloginfo('name') ?></h1>
-                <p><?php bloginfo('description') ?></p>
-            </div>
+<section class="hero">
+    <div class="judul">
+        <div class="isi-judul">
+            <h1><?php bloginfo('name') ?></h1>
+            <p><?php bloginfo('description') ?></p>
         </div>
-        <img src="<?= get_theme_file_uri('/assets/images/bg') . "/movies.jpg" ?>">
-    </section>
+    </div>
+    <!-- <img src="<?= get_theme_file_uri('/assets/images/bg') . "/movies.jpg" ?>"> -->
+</section>
 
 
+<div class="container">
 
     <section class="content">
         <h1>Based On View</h1>
