@@ -11,9 +11,18 @@
 
 <body>
     <nav>
-        <h1><a href="<?php home_url() ?>"><?php bloginfo("name") ?></a></h1>
-        <?php wp_nav_menu([
+        <h1><a href="<?php echo home_url(); ?>"><?php bloginfo("name"); ?></a></h1>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <?php
+        wp_nav_menu([
             'theme_location' => 'navbar-menu',
             'container_class' => 'navbar',
-        ]) ?>
+            'menu_class' => 'menu',
+            'fallback_cb' => false,
+        ]);
+        ?>
     </nav>

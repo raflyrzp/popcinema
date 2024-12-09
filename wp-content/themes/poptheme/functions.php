@@ -117,6 +117,7 @@ function popcinema_register_taxonomy_genre()
 add_action('init', 'popcinema_register_taxonomy_genre');
 
 
+// GALLERY
 function popcinema_custom_gallery()
 {
     register_post_type('Gallery', [
@@ -137,9 +138,36 @@ function popcinema_custom_gallery()
             'menu_name' => 'Gallery'
         ],
         'public' => true,
-        'rewrite' => ['slug' => 'gallery', 'with_front' => false]
+        'rewrite' => ['slug' => 'gallery', 'with_front' => false],
+        'supports' => ['title', 'editor', 'thumbnail'],
     ]);
     flush_rewrite_rules(false);
 }
 
 add_action('init', 'popcinema_custom_gallery');
+
+
+// RATING
+function save_movie_rating()
+{
+    if (
+        isset($_POST['submit_rating'], $_POST['user_rating'], $_POST['movie_rating_nonce']) &&
+        wp_verify_nonce($_POST['movie_rating_nonce'], 'save_movie_rating') &&
+        is_user_logged_in()
+    ) {
+        $post_id = get_the_ID();
+        $user_id = get_current_user_id();
+        $user_rating = floatval($_POST['user_rating']);
+
+        if ($user_rating >= 1 && $user_rating <= 10) {
+            $meta_key = 'rating_user_' . $user_id;
+
+            if (get_post_meta($post_id, $meta_key, true)) {
+                update_post_meta($post_id, $meta_key, $user_rating);
+            } else {
+                add_post_meta($post_id, $meta_key, $user_rating);
+            }
+        }
+    }
+}
+add_action('template_redirect', 'save_movie_rating');

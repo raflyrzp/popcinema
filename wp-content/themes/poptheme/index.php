@@ -3,6 +3,10 @@
 $wp_query = new WP_Query([
     'post_type' => 'post',
     'posts_per_page' => 10,
+    'paged' => $paged,
+    'meta_key' => 'rating',
+    'orderby' => 'rating',
+    'order' =>  'DESC'
 ]);
 ?>
 
@@ -21,7 +25,7 @@ $wp_query = new WP_Query([
 <div class="container">
 
     <section class="content">
-        <h1>Based On View</h1>
+        <h1>Recomendation</h1>
         <div class="movie-list">
             <?php $i = 1 ?>
             <?php while ($wp_query->have_posts() && $i <= 4): ?>
