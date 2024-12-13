@@ -42,8 +42,6 @@ update_post_meta(get_the_ID(), 'view', $value + 1);
                 }
                 ?>
 
-
-
                 <?php if (is_user_logged_in()): ?>
                     <?php
                     $user_id = get_current_user_id();
@@ -59,8 +57,6 @@ update_post_meta(get_the_ID(), 'view', $value + 1);
                 <?php else: ?>
                     <p><a href="<?= esc_url(wp_login_url()); ?>">Log in</a> to rate this movie.</p>
                 <?php endif; ?>
-
-
             </div>
 
             <div class="movie-cast">

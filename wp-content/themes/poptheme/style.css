@@ -1,4 +1,4 @@
-/*
+/* 
     Theme Name: PopTheme
     Template: blankslate
 */
@@ -200,13 +200,14 @@ nav h1 a {
 }
 
 .content h1 {
-  padding: 2rem 0;
+  padding: 3rem 0 2rem 0;
+  /* text-align: start; */
 }
 
 .movie-list {
   width: 100%;
   display: flex;
-  gap: 1rem;
+  gap: 5rem;
   justify-content: center;
   flex-wrap: wrap;
 }
@@ -215,13 +216,14 @@ nav h1 a {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 10rem;
+  max-height: 15rem;
 }
 
 .thumbnail img {
-  width: 7.5rem;
   object-fit: cover;
-  max-height: 10rem;
+  width: 100%;
+  height: 100%;
   border-radius: 10px;
 }
 
@@ -229,6 +231,7 @@ nav h1 a {
   text-decoration: none;
   color: var(--dark-text);
   text-align: center;
+  /* margin-top: 6rem; */
 }
 
 .movie-card a {
@@ -244,12 +247,12 @@ nav h1 a {
   margin-bottom: 20px;
 }
 
-.thumbnail {
+/* .thumbnail {
   width: 120px;
   height: 160px;
   background: #ccc;
   border-radius: 8px;
-}
+} */
 
 .movie-info {
   flex: 1;
