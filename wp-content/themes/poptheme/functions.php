@@ -41,35 +41,35 @@ function popcinema_login_error()
 add_action('login_errors', 'popcinema_login_error');
 
 // MOVIE POST
-function movie_post_type_register()
-{
-    register_post_type('Movie', [
-        'labels' => [
-            'name' => 'Movies',
-            'singular_name' => 'Movie',
-            'add_new' => 'Add New',
-            'add_new_item' => 'Add New Movie',
-            'edit' => 'Edit',
-            'edit_item' => 'Edit Movie',
-            'new_item' => 'New Movie',
-            'view' => 'View',
-            'view_item' => 'View Movie',
-            'search_items' => 'Search Movies',
-            'not_found' => 'No Movies found',
-            'not_found_in_trash' => 'No Movies found in Trash',
-            'parent_item_colon' => '',
-            'menu_name' => 'Movies',
-        ],
-        'public' => true,
-        'has_archive' => true,
-        'rewrite' => ['slug' => 'movies', 'with_front' => false],
-        'supports' => ['title', 'editor', 'thumbnail', 'excerpt', 'comments'],
-        'menu_icon' => 'dashicons-video-alt',
-    ]);
+// function movie_post_type_register()
+// {
+//     register_post_type('Movie', [
+//         'labels' => [
+//             'name' => 'Movies',
+//             'singular_name' => 'Movie',
+//             'add_new' => 'Add New',
+//             'add_new_item' => 'Add New Movie',
+//             'edit' => 'Edit',
+//             'edit_item' => 'Edit Movie',
+//             'new_item' => 'New Movie',
+//             'view' => 'View',
+//             'view_item' => 'View Movie',
+//             'search_items' => 'Search Movies',
+//             'not_found' => 'No Movies found',
+//             'not_found_in_trash' => 'No Movies found in Trash',
+//             'parent_item_colon' => '',
+//             'menu_name' => 'Movies',
+//         ],
+//         'public' => true,
+//         'has_archive' => true,
+//         'rewrite' => ['slug' => 'movies', 'with_front' => false],
+//         'supports' => ['title', 'editor', 'thumbnail', 'excerpt', 'comments'],
+//         'menu_icon' => 'dashicons-video-alt',
+//     ]);
 
-    flush_rewrite_rules(false);
-}
-add_action('init', 'movie_post_type_register');
+//     flush_rewrite_rules(false);
+// }
+// add_action('init', 'movie_post_type_register');
 
 
 // CAST POST

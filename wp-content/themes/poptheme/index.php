@@ -1,20 +1,19 @@
 <?= get_header(); ?>
 <?php
+
+$wp_query = new WP_Query([
+    'post_type' => 'post',
+    'posts_per_page' => 10,
+]);
+
 $movie_recomendation = new WP_Query([
     'post_type' => 'post',
     'posts_per_page' => 10,
-    'paged' => $paged,
     'meta_key' => 'rating',
     'orderby' => 'rating',
-    'order' =>  'DESC'
-]);
-
-$movie_list = new WP_Query([
-    'post_type' => 'post',
-    'posts_per_page' => 10,
+    'order' => 'DESC'
 ]);
 ?>
-
 
 <section class="hero">
     <div class="judul">
@@ -23,9 +22,7 @@ $movie_list = new WP_Query([
             <p><?php bloginfo('description') ?></p>
         </div>
     </div>
-    <!-- <img src="<?= get_theme_file_uri('/assets/images/bg') . "/movies.jpg" ?>"> -->
 </section>
-
 
 <div class="container">
 
@@ -62,9 +59,9 @@ $movie_list = new WP_Query([
         <h1>Movie List</h1>
         <div class="movie-list">
             <?php $i = 1 ?>
-            <?php while ($movie_list->have_posts() && $i <= 8): ?>
+            <?php while ($wp_query->have_posts() && $i <= 8): ?>
                 <?php
-                $movie_list->the_post();
+                $wp_query->the_post();
                 $i++;
                 ?>
 
@@ -87,7 +84,8 @@ $movie_list = new WP_Query([
         </div>
     </section>
 
-    <a href="#" class="back-to-top-btn" title="Back to Top">&#129121;</a>
+    <!-- BACK TO TOP -->
+    <a href="#" class="back-to-top">&#129121;</a>
 
 </div>
 
